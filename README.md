@@ -50,7 +50,7 @@ The internship provides practical exposure to:
 
 ---
 
-# 🧪 Week 01 — Cybersecurity Lab Environment
+# 🧪 Week 01 — Cybersecurity Lab Environment Overview
 
 The initial laboratory environment was built during **Week 01** using:
 
@@ -99,57 +99,14 @@ The initial laboratory environment was built during **Week 01** using:
 
 ---
 
-# ⚙️ Week 01 Setup Evidence
-
-### 1. Created VirtualBox NAT Network
-Configured `NetworkWalksNAT` (`10.10.10.0/24`) with DHCP enabled.
-
-![Create NAT Network](week-01/screenshots/01-create-nat-network.png)
-
----
-
-### 2. Connected Kali Linux VM
-Connected Kali Linux virtual machine to the `NetworkWalksNAT` network.
-
-![Kali Connected to NAT Network](week-01/screenshots/02-kali-connected-to-nat-network.png)
-
----
-
-### 3. Created Initial Snapshot
-Created a baseline snapshot (`First_Snapshots`) for fast recovery.
-
-![First Snapshot](week-01/screenshots/03-first-snapshot.png)
-
----
-
-### 4. Verified IP Configuration
-Verified dynamic IP allocation (`10.10.10.3`) using `ifconfig`.
-
-![Kali IP Address](week-01/screenshots/04-kali-ip-address.png)
-
----
-
-### 5. Tested Network Connectivity
-Tested outbound internet connectivity from Kali Linux.
-
-![Network Connectivity](week-01/screenshots/05-network-connectivity.png)
-
----
-
-### 6. Configured Shared Folder
-Setup VirtualBox Shared Folder (`sf_Downloads`) for host-guest file sharing.
-
-![Shared Folder](week-01/screenshots/06-shared-folder.png)
-
----
-
 # 📚 Internship Progress Summary
 
-## ➡️ [Week 01 Documentation](week-01/)
+## ➡️ [Week 01 Documentation & Lab Screenshots](week-01/)
 - Cybersecurity Fundamentals & Virtualization
 - Kali Linux Installation & Network Setup
 - VirtualBox NAT Network & Snapshot Creation
 - Interface IP Verification & Shared Folder Integration
+- Detailed Lab Environment Screenshots & Evidence
 
 ## ➡️ [Week 02 Documentation](week-02/)
 - *Documentation will be added as the internship progresses.*
