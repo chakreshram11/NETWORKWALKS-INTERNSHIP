@@ -4,7 +4,7 @@
 ![Kali Linux](https://img.shields.io/badge/OS-Kali%20Linux-blue)
 ![VirtualBox](https://img.shields.io/badge/Virtualization-Oracle%20VirtualBox-orange)
 ![Lab Status](https://img.shields.io/badge/Lab-Active-success)
-![Internship](https://img.shields.io/badge/Program-Cybersecurity%20Internship-informational)
+![Program](https://img.shields.io/badge/Program-Cybersecurity%20Internship-informational)
 
 > A hands-on cybersecurity internship portfolio documenting laboratory setup, networking, security tools, practical exercises, technical investigations, and project-based learning at Networkwalks.
 
@@ -14,9 +14,25 @@
 
 This repository documents my technical learning journey during my **Cybersecurity Internship at Networkwalks**.
 
-The objective is to build practical cybersecurity skills through controlled laboratory environments, hands-on exercises, security tools, networking activities, troubleshooting, and real-world security scenarios.
+The objective is to build practical cybersecurity skills through controlled laboratory environments, hands-on exercises, security tools, networking activities, troubleshooting, and real-world security scenarios across the 4-week internship program.
 
-The repository will be continuously updated throughout the internship with technical documentation, screenshots, lab configurations, findings, and project reports.
+---
+
+## 📂 Repository Structure
+
+The internship is organized into weekly modules:
+
+```text
+networkwalks-cybersecurity-internship/
+│
+├── README.md
+├── .gitignore
+│
+├── week-01/       → Cybersecurity Lab Environment Setup & Baseline Configuration
+├── week-02/       → Week 02 Learning & Technical Documentation
+├── week-03/       → Week 03 Learning & Technical Documentation
+└── week-04/       → Week 04 Learning, Projects & Final Internship Summary
+```
 
 ---
 
@@ -24,36 +40,32 @@ The repository will be continuously updated throughout the internship with techn
 
 The internship provides practical exposure to:
 
-- 🔐 Network Security
-- 🕵️ Vulnerability Assessment
-- ⚔️ Penetration Testing
-- 🛡️ Security Operations
-- 🚨 Incident Response
-- 🔎 Digital Forensics
-- 📊 Risk Assessment
-- 🌐 Network Administration
-- 🐧 Linux Security
-- 🧪 Security Laboratory Testing
-- 📚 Cybersecurity Best Practices
+- 🔐 Network Security & Administration
+- 🕵️ Vulnerability Assessment & Risk Identification
+- ⚔️ Penetration Testing Methodologies
+- 🛡️ Security Operations & Monitoring
+- 🚨 Incident Response & Forensics
+- 🐧 Linux Security & Kali Linux Tools
+- 🧪 Security Laboratory Design & Virtualization
 
 ---
 
-# 🧪 Cybersecurity Lab Environment
+# 🧪 Week 01 — Cybersecurity Lab Environment
 
-The initial laboratory environment was built using:
+The initial laboratory environment was built during **Week 01** using:
 
 | Component | Configuration |
 |---|---|
-| Host OS | Windows |
+| Host OS | Windows 11 Pro |
 | Virtualization | Oracle VirtualBox |
 | Security OS | Kali Linux |
 | Network Type | VirtualBox NAT Network |
 | NAT Network Name | `NetworkWalksNAT` |
 | Network CIDR | `10.10.10.0/24` |
 | DHCP | Enabled |
-| Linux Network Tools | `ifconfig`, `ip` |
-| Lab Recovery | VirtualBox Snapshot |
-| File Integration | VirtualBox Shared Folder |
+| Assigned Kali IP | `10.10.10.3` |
+| Lab Recovery | VirtualBox Snapshot (`First_Snapshots`) |
+| File Integration | VirtualBox Shared Folder (`sf_Downloads`) |
 
 ---
 
@@ -87,261 +99,77 @@ The initial laboratory environment was built using:
 
 ---
 
-# ⚙️ Environment Setup
-
-The cybersecurity laboratory was prepared in the following stages:
+# ⚙️ Week 01 Setup Evidence
 
 ### 1. Created VirtualBox NAT Network
+Configured `NetworkWalksNAT` (`10.10.10.0/24`) with DHCP enabled.
 
-A dedicated NAT Network named:
+![Create NAT Network](week-01/screenshots/01-create-nat-network.png)
 
-```text
-NetworkWalksNAT
-```
+---
 
-was configured with:
+### 2. Connected Kali Linux VM
+Connected Kali Linux virtual machine to the `NetworkWalksNAT` network.
 
-```text
-10.10.10.0/24
-```
+![Kali Connected to NAT Network](week-01/screenshots/02-kali-connected-to-nat-network.png)
 
-DHCP was enabled to allow virtual machines to receive network configuration automatically.
-
-### 2. Connected Kali Linux
-
-The Kali Linux virtual machine was configured to use the newly created NAT Network.
+---
 
 ### 3. Created Initial Snapshot
+Created a baseline snapshot (`First_Snapshots`) for fast recovery.
 
-A clean VirtualBox snapshot was created before starting further security laboratory activities.
+![First Snapshot](week-01/screenshots/03-first-snapshot.png)
 
-This provides a recovery point for restoring the lab if a configuration or experiment causes problems.
+---
 
 ### 4. Verified IP Configuration
+Verified dynamic IP allocation (`10.10.10.3`) using `ifconfig`.
 
-The Kali Linux network interface was checked using Linux networking commands.
+![Kali IP Address](week-01/screenshots/04-kali-ip-address.png)
 
-Example:
-
-```bash
-ifconfig
-```
-
-and:
-
-```bash
-ip addr
-```
+---
 
 ### 5. Tested Network Connectivity
+Tested outbound internet connectivity from Kali Linux.
 
-Network connectivity from Kali Linux was verified before proceeding with further laboratory exercises.
+![Network Connectivity](week-01/screenshots/05-network-connectivity.png)
 
-Example:
-
-```bash
-ping -c 4 8.8.8.8
-```
+---
 
 ### 6. Configured Shared Folder
+Setup VirtualBox Shared Folder (`sf_Downloads`) for host-guest file sharing.
 
-A VirtualBox shared folder was configured to facilitate controlled file exchange between the host system and Kali Linux laboratory environment.
-
----
-
-# 📸 Environment Setup Evidence
-
-## 01 — Create NAT Network
-
-A dedicated VirtualBox NAT Network was created for the cybersecurity laboratory.
-
-![Create NAT Network](environment-setup/screenshots/01-create-nat-network.png)
+![Shared Folder](week-01/screenshots/06-shared-folder.png)
 
 ---
 
-## 02 — Kali Linux Connected to NAT Network
+# 📚 Internship Progress Summary
 
-The Kali Linux virtual machine was configured to use the `NetworkWalksNAT` network.
+## ➡️ [Week 01 Documentation](week-01/)
+- Cybersecurity Fundamentals & Virtualization
+- Kali Linux Installation & Network Setup
+- VirtualBox NAT Network & Snapshot Creation
+- Interface IP Verification & Shared Folder Integration
 
-![Kali Connected to NAT Network](environment-setup/screenshots/02-kali-connected-to-nat-network.png)
+## ➡️ [Week 02 Documentation](week-02/)
+- *Documentation will be added as the internship progresses.*
 
----
+## ➡️ [Week 03 Documentation](week-03/)
+- *Documentation will be added as the internship progresses.*
 
-## 03 — Initial VirtualBox Snapshot
-
-A baseline snapshot was created before beginning the laboratory exercises.
-
-![First Snapshot](environment-setup/screenshots/03-first-snapshot.png)
-
----
-
-## 04 — Kali Linux IP Address
-
-The Kali Linux network configuration was verified and the assigned IP address was identified.
-
-![Kali IP Address](environment-setup/screenshots/04-kali-ip-address.png)
-
----
-
-## 05 — Network Connectivity Test
-
-Network connectivity was tested from the Kali Linux environment.
-
-![Network Connectivity](environment-setup/screenshots/05-network-connectivity.png)
-
----
-
-## 06 — Shared Folder
-
-A VirtualBox shared folder was configured for controlled file exchange between the host and virtual machine.
-
-![Shared Folder](environment-setup/screenshots/06-shared-folder.png)
-
----
-
-# 📚 Internship Progress
-
-## Week 01
-
-Focus:
-
-* Cybersecurity fundamentals
-* Linux fundamentals
-* Networking fundamentals
-* Kali Linux
-* Laboratory environment setup
-* Virtualization
-* Network configuration
-
-Documentation:
-
-➡️ [`week-01/`](week-01/)
-
----
-
-## Week 02
-
-Focus areas will be documented as the internship progresses.
-
-➡️ [`week-02/`](week-02/)
-
----
-
-## Week 03
-
-Focus areas will be documented as the internship progresses.
-
-➡️ [`week-03/`](week-03/)
-
----
-
-## Week 04
-
-Final learning activities, projects, and technical documentation will be added here.
-
-➡️ [`week-04/`](week-04/)
-
----
-
-# 🛠️ Tools & Technologies
-
-Technologies and tools used or explored during the internship include:
-
-* Kali Linux
-* Oracle VirtualBox
-* Linux CLI
-* Nmap
-* Wireshark
-* Burp Suite
-* Metasploit Framework
-* Gobuster
-* Nikto
-* Netcat
-* Git
-* GitHub
-* GNS3
-* Zabbix
-
-> Tools will be added to this list as they are actually used during the internship.
-
----
-
-# 📂 Repository Organization
-
-```text
-environment-setup/   → Cybersecurity lab configuration
-week-01/             → Week 01 learning and activities
-week-02/             → Week 02 learning and activities
-week-03/             → Week 03 learning and activities
-week-04/             → Week 04 learning and activities
-projects/            → Cybersecurity projects
-reports/             → Technical reports
-docs/                → Learning notes and documentation
-```
+## ➡️ [Week 04 Documentation](week-04/)
+- *Documentation will be added as the internship progresses.*
 
 ---
 
 # 🔐 Security & Ethics
 
 All security testing documented in this repository is intended for:
-
-* Authorized laboratory environments
-* Educational purposes
-* Systems owned by me
-* Systems for which explicit permission has been provided
-
-No unauthorized systems, networks, applications, or accounts should be targeted using the techniques documented here.
+- Authorized laboratory environments
+- Educational purposes
+- Systems owned by me or for which explicit permission has been provided
 
 Responsible disclosure and applicable laws must always be followed.
-
----
-
-# 📈 Learning Approach
-
-My approach throughout this internship is based on:
-
-```text
-Learn
-  ↓
-Configure
-  ↓
-Test
-  ↓
-Troubleshoot
-  ↓
-Document
-  ↓
-Analyze
-  ↓
-Improve
-```
-
-The goal is not simply to run security tools, but to understand:
-
-* What the technology does
-* Why it works
-* How it can fail
-* How to identify security issues
-* How to interpret results
-* How to document technical findings
-
----
-
-# 🚀 Future Additions
-
-This repository will continue to evolve with:
-
-* Network security laboratories
-* Vulnerability assessment exercises
-* Penetration testing labs
-* Web security testing
-* Security monitoring
-* Incident response exercises
-* Digital forensics investigations
-* OSINT exercises
-* Security automation
-* Technical reports
-* Final internship projects
 
 ---
 
@@ -351,8 +179,7 @@ This repository will continue to evolve with:
 
 Cybersecurity | Networking | Full-Stack Development
 
-GitHub: [@chakreshram11](https://github.com/chakreshram11)
-
+GitHub: [@chakreshram11](https://github.com/chakreshram11)  
 Portfolio: [chakreshram.in](https://chakreshram.in)
 
 ---
@@ -360,5 +187,3 @@ Portfolio: [chakreshram.in](https://chakreshram.in)
 ## ⚠️ Disclaimer
 
 This repository is maintained for educational and professional portfolio purposes.
-
-Cybersecurity techniques must only be used against systems and environments where proper authorization has been obtained.
