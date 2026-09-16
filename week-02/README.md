@@ -364,13 +364,7 @@ week-02/
 ├── NetworkWalks_Week2_Footprinting_Report.docx
 ├── command output.txt
 │
-├── whois.png
-├── curl.png
-├── dnsrecon.png
-├── nslookup.png
-├── wafwoof.png
-├── whatweb.png
-└── zenmap mac address.png
+└── screenshorts
 ```
 
 ---
