@@ -1,71 +1,45 @@
-🧪 Week 02 — Footprinting, Reconnaissance & Network Scanning
+# 🧪 Week 02 — Footprinting, Reconnaissance & Network Scanning
 
-This directory documents the practical cybersecurity activities completed during Week 02 of the NetworkWalks Cybersecurity Internship.
+This directory documents the practical cybersecurity activities completed during **Week 02** of the NetworkWalks Cybersecurity Internship.
 
 The week focused on:
-
-Web Footprinting & Reconnaissance using Kali Linux
-
-Internal Network Discovery using Zenmap/Nmap
+- **Web Footprinting & Reconnaissance** using Kali Linux
+- **Internal Network Discovery** using Zenmap/Nmap
 
 All activities were performed within the authorized educational lab scope.
 
-🎯 Week 02 Objectives
+---
 
-Collect publicly available information about a target domain.
+## 🎯 Week 02 Objectives
 
-Enumerate DNS records and infrastructure information.
+- Collect publicly available information about a target domain.
+- Enumerate DNS records and infrastructure information.
+- Identify web technologies and server information.
+- Inspect HTTP response headers.
+- Detect the presence of a Web Application Firewall (WAF).
+- Discover active hosts on an authorized internal lab network.
+- Document observations in a structured security report.
 
-Identify web technologies and server information.
+---
 
-Inspect HTTP response headers.
+## 🧰 Tools Used
 
-Detect the presence of a Web Application Firewall (WAF).
+| Tool | Purpose |
+|---|---|
+| **Kali Linux** | Security testing and reconnaissance environment |
+| **WHOIS** | Domain registration and name-server information |
+| **WhatWeb** | Web technology fingerprinting |
+| **Nslookup** | DNS resolution and IP identification |
+| **cURL** | HTTP response/header inspection |
+| **Wafw00f** | WAF detection |
+| **DNSRecon** | DNS record enumeration |
+| **Zenmap / Nmap** | Internal host discovery and network scanning |
 
-Discover active hosts on an authorized internal lab network.
+---
 
-Document observations in a structured security report.
+## 🔄 Week 02 Workflow
 
-🧰 Tools Used
-
-Tool
-
-Purpose
-
-Kali Linux
-
-Security testing and reconnaissance environment
-
-WHOIS
-
-Domain registration and name-server information
-
-WhatWeb
-
-Web technology fingerprinting
-
-Nslookup
-
-DNS resolution and IP identification
-
-cURL
-
-HTTP response/header inspection
-
-Wafw00f
-
-WAF detection
-
-DNSRecon
-
-DNS record enumeration
-
-Zenmap / Nmap
-
-Internal host discovery and network scanning
-
-🔄 Week 02 Workflow
-
+```text
                  FOOTPRINTING & RECONNAISSANCE
                               │
                               ▼
@@ -94,323 +68,296 @@ Internal host discovery and network scanning
                               │
                               ▼
                     Identify Active Hosts
+```
 
-🌐 1. Web Footprinting & Reconnaissance
+# 🌐 1. Web Footprinting & Reconnaissance
 
-Target: networkwalks.com
+**Target:** `networkwalks.com`
 
 The following Kali Linux tools were used to collect different categories of information about the target domain.
 
-Scope: Reconnaissance activities were performed as part of the authorized NetworkWalks educational exercise. No exploitation was performed during this activity.
+> **Scope:** Reconnaissance activities were performed as part of the authorized NetworkWalks educational exercise. No exploitation was performed during this activity.
 
-01 — WHOIS Enumeration
+---
 
-Command
+## 01 — WHOIS Enumeration
 
+### Command
+
+```bash
 whois networkwalks.com
+```
 
-Purpose
+### Purpose
 
 WHOIS was used to collect publicly available domain registration information including registrar details, dates, name servers, domain status and DNSSEC status.
 
-Observed Information
+### Observed Information
 
-Registrar: GoDaddy.com, LLC
+- **Registrar:** GoDaddy.com, LLC
+- **Name Servers:** `NS6135.HOSTGATOR.COM`
+- **Domain Creation:** `2019-11-06`
+- **Registry Expiry:** `2027-11-06`
+- **DNSSEC:** Unsigned
 
-Name Servers: NS6135.HOSTGATOR.COM
-
-Domain Creation: 2019-11-06
-
-Registry Expiry: 2027-11-06
-
-DNSSEC: Unsigned
-
-Evidence
+### Evidence
 
 ![whois](screenshorts/whois.png)
 
-02 — DNS Enumeration with DNSRecon
+---
 
-Command
+## 02 — DNS Enumeration with DNSRecon
 
+### Command
+
+```bash
 dnsrecon -d networkwalks.com
+```
 
-Purpose
+### Purpose
 
 DNSRecon was used to enumerate DNS records associated with the domain.
 
-Observed Information
+### Observed Information
 
 The output included information relating to:
-
-A record
-
-AAAA record
-
-Name servers
-
-MX/mail records
-
-TXT/SPF information
-
-SRV records
-
-cPanel autodiscover services
+- A record
+- AAAA record
+- Name servers
+- MX/mail records
+- TXT/SPF information
+- SRV records
+- cPanel autodiscover services
 
 Observed IPv4 address:
 
+```text
 192.232.216.135
+```
 
-Evidence
+### Evidence
 
 ![dnsrecon](screenshorts/dnsrecon.png)
 
-03 — DNS Resolution with Nslookup
+---
 
-Command
+## 03 — DNS Resolution with Nslookup
 
+### Command
+
+```bash
 nslookup networkwalks.com
+```
 
-Result
+### Result
 
+```text
 networkwalks.com → 192.232.216.135
+```
 
-Evidence
+### Evidence
 
 ![nslookup](screenshorts/nslookup.png)
 
-04 — HTTP Header Inspection with cURL
+---
 
-Command
+## 04 — HTTP Header Inspection with cURL
 
+### Command
+
+```bash
 curl -I https://networkwalks.com
+```
 
-Purpose
+### Purpose
 
-The -I option was used to retrieve HTTP response headers.
+The `-I` option was used to retrieve HTTP response headers.
 
-Observed Information
+### Observed Information
 
 The response included:
+- `HTTP/2 200`
+- Apache web server information
+- WordPress-related information
+- `/wp-json/` REST API reference
+- Other HTTP/application headers
 
-HTTP/2 200
-
-Apache web server information
-
-WordPress-related information
-
-/wp-json/ REST API reference
-
-Other HTTP/application headers
-
-Evidence
+### Evidence
 
 ![curl](screenshorts/curl.png)
 
-05 — WAF Detection with Wafw00f
+---
 
-Command
+## 05 — WAF Detection with Wafw00f
 
+### Command
+
+```bash
 wafw00f networkwalks.com
+```
 
-Result
+### Result
 
 The tool identified:
 
+```text
 ModSecurity (SpiderLabs)
+```
 
 as the detected Web Application Firewall.
 
-Evidence
+### Evidence
 
 ![wafwoof](screenshorts/wafwoof.png)
 
-06 — Web Technology Fingerprinting with WhatWeb
+---
 
-Command
+## 06 — Web Technology Fingerprinting with WhatWeb
 
+### Command
+
+```bash
 whatweb networkwalks.com
+```
 
-Purpose
+### Purpose
 
 WhatWeb was used to identify technologies and components exposed by the website.
 
-Observed Technologies
+### Observed Technologies
 
 The captured output identified technologies including:
 
-Apache
+- Apache
+- WordPress
+- Bootstrap
+- jQuery
+- WP Download Manager
+- Google Tag Manager
+- Other HTTP/application headers
 
-WordPress
-
-Bootstrap
-
-jQuery
-
-WP Download Manager
-
-Google Tag Manager
-
-Other HTTP/application headers
-
-Evidence
+### Evidence
 
 ![whatweb](screenshorts/whatweb.png)
 
-🖧 2. Internal Network Discovery with Zenmap
+---
+
+# 🖧 2. Internal Network Discovery with Zenmap
 
 Zenmap was used to perform a Ping Scan against the authorized internal laboratory subnet.
 
-Target Subnet
+### Target Subnet
 
+```text
 10.10.10.0/24
+```
 
-Profile
+### Profile
 
+```text
 Ping Scan
+```
 
-Command
+### Command
 
+```bash
 nmap -sn 10.10.10.0/24
+```
 
-Result
+### Result
 
 The scan checked:
 
+```text
 256 IP addresses
+```
 
 and identified:
 
+```text
 5 hosts up
+```
 
-Active Hosts Observed
+### Active Hosts Observed
 
-Host
-
-IP Address
-
-Host 1
-
-10.10.10.1
-
-Host 2
-
-10.10.10.20
-
-Host 3
-
-10.10.10.30
-
-Host 4
-
-10.10.10.40
-
-Host 5
-
-10.10.10.50
+| Host | IP Address |
+|---|---|
+| Host 1 | `10.10.10.1` |
+| Host 2 | `10.10.10.20` |
+| Host 3 | `10.10.10.30` |
+| Host 4 | `10.10.10.40` |
+| Host 5 | `10.10.10.50` |
 
 Zenmap also displayed MAC-address information for the discovered hosts.
 
-Evidence
+### Evidence
 
-![zenmap mac address](screenshorts/zenmap mac address.png)
+![Zenmap MAC Address](screenshorts/zenmap%20mac%20address.png)
 
-📊 3. Key Observations
+---
 
-#
+# 📊 3. Key Observations
 
-Observation
+| # | Observation | Security Relevance |
+|---|---|---|
+| 1 | Web technology information was identifiable | May assist further authorized security assessment. |
+| 2 | Public DNS information was available | Can help build an infrastructure profile. |
+| 3 | Server IP address was resolvable | Provides information about the web-service location. |
+| 4 | HTTP headers exposed technical information | Can assist application fingerprinting and enumeration. |
+| 5 | ModSecurity WAF was detected | Indicates the presence of an application-layer security control. |
+| 6 | Multiple internal hosts responded | Helps establish an inventory of active systems in the lab. |
 
-Security Relevance
+> **Important:** These are reconnaissance observations, **not confirmed vulnerabilities**. Further authorized validation would be required before classifying any observation as a vulnerability.
 
-1
+---
 
-Web technology information was identifiable
+# 🛡️ 4. Security Recommendations
 
-May assist further authorized security assessment.
+1. **Review publicly exposed technology information**  
+   Minimize unnecessary disclosure of software and infrastructure details where practical.
 
-2
+2. **Keep web components updated**  
+   Regularly update WordPress, plugins and supporting components.
 
-Public DNS information was available
+3. **Review HTTP response headers**  
+   Remove unnecessary technical information where appropriate.
 
-Can help build an infrastructure profile.
+4. **Review DNS records regularly**  
+   Remove obsolete or unnecessary records and services.
 
-3
+5. **Maintain WAF configuration**  
+   Keep the WAF properly configured, monitored and updated.
 
-Server IP address was resolvable
+6. **Maintain an internal asset inventory**  
+   Regularly identify and document active devices within authorized networks.
 
-Provides information about the web-service location.
+7. **Investigate unknown hosts**  
+   Unexpected systems discovered during scanning should be identified and verified.
 
-4
+8. **Perform testing only within authorized scope**  
+   Reconnaissance and scanning should only be conducted where appropriate authorization exists.
 
-HTTP headers exposed technical information
+---
 
-Can assist application fingerprinting and enumeration.
-
-5
-
-ModSecurity WAF was detected
-
-Indicates the presence of an application-layer security control.
-
-6
-
-Multiple internal hosts responded
-
-Helps establish an inventory of active systems in the lab.
-
-Important: These are reconnaissance observations, not confirmed vulnerabilities. Further authorized validation would be required before classifying any observation as a vulnerability.
-
-🛡️ 4. Security Recommendations
-
-Review publicly exposed technology information
-Minimize unnecessary disclosure of software and infrastructure details where practical.
-
-Keep web components updated
-Regularly update WordPress, plugins and supporting components.
-
-Review HTTP response headers
-Remove unnecessary technical information where appropriate.
-
-Review DNS records regularly
-Remove obsolete or unnecessary records and services.
-
-Maintain WAF configuration
-Keep the WAF properly configured, monitored and updated.
-
-Maintain an internal asset inventory
-Regularly identify and document active devices within authorized networks.
-
-Investigate unknown hosts
-Unexpected systems discovered during scanning should be identified and verified.
-
-Perform testing only within authorized scope
-Reconnaissance and scanning should only be conducted where appropriate authorization exists.
-
-🧠 5. Key Learning Outcomes
+# 🧠 5. Key Learning Outcomes
 
 Through this practical exercise, I learned how to:
 
-Perform domain footprinting using WHOIS.
+- Perform domain footprinting using WHOIS.
+- Enumerate DNS information using DNSRecon.
+- Resolve domains using Nslookup.
+- Inspect HTTP response headers with cURL.
+- Fingerprint web technologies using WhatWeb.
+- Detect WAF technologies using Wafw00f.
+- Discover active hosts using Zenmap/Nmap.
+- Document technical observations in a structured security report.
+- Distinguish reconnaissance observations from confirmed vulnerabilities.
 
-Enumerate DNS information using DNSRecon.
+---
 
-Resolve domains using Nslookup.
+# 📁 6. Repository Contents
 
-Inspect HTTP response headers with cURL.
-
-Fingerprint web technologies using WhatWeb.
-
-Detect WAF technologies using Wafw00f.
-
-Discover active hosts using Zenmap/Nmap.
-
-Document technical observations in a structured security report.
-
-Distinguish reconnaissance observations from confirmed vulnerabilities.
-
-📁 6. Repository Contents
-
+```text
 week-02/
 │
 ├── README.md
@@ -424,24 +371,33 @@ week-02/
 ├── wafwoof.png
 ├── whatweb.png
 └── zenmap mac address.png
+```
 
-📄 7. Detailed Report
+---
+
+# 📄 7. Detailed Report
 
 The complete report containing methodology, observations, risk analysis, recommendations and evidence is available in:
 
-NetworkWalks_Week2_Footprinting_Report.docx
+**`NetworkWalks_Week2_Footprinting_Report.docx`**
 
-🏁 Week 02 Outcome
+---
 
-Week 02 provided practical experience in web footprinting, DNS enumeration, technology fingerprinting, HTTP analysis, WAF detection and internal network discovery.
+# 🏁 Week 02 Outcome
+
+Week 02 provided practical experience in **web footprinting, DNS enumeration, technology fingerprinting, HTTP analysis, WAF detection and internal network discovery**.
 
 The exercises demonstrated how reconnaissance can reveal useful information about web infrastructure and internal lab environments before deeper security testing is performed.
 
-👤 Author
+---
 
-Chakresh Ram Kudupudi
+## 👤 Author
 
-Cybersecurity Graduate
+**Chakresh Ram Kudupudi**
+
+Cybersecurity Graduate  
 NetworkWalks Cybersecurity Internship
 
-⚠️ Ethical Use Notice: All techniques documented in this repository are intended for authorized security testing, cybersecurity education and systems owned or explicitly permitted for testing. Unauthorized scanning or access may violate organizational policies and applicable laws.
+---
+
+> ⚠️ **Ethical Use Notice:** All techniques documented in this repository are intended for authorized security testing, cybersecurity education and systems owned or explicitly permitted for testing. Unauthorized scanning or access may violate organizational policies and applicable laws.
