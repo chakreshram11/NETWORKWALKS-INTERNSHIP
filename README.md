@@ -108,8 +108,20 @@ The initial laboratory environment was built during **Week 01** using:
 - Interface IP Verification & Shared Folder Integration
 - Detailed Lab Environment Screenshots & Evidence
 
-## ➡️ [Week 02 Documentation](week-02/)
-- *Documentation will be added as the internship progresses.*
+## ➡️ [Week 02 Documentation — Footprinting, Reconnaissance & Network Scanning](https://github.com/chakreshram11/NETWORKWALKS-INTERNSHIP/tree/main/week-02)
+
+- Web Footprinting & Reconnaissance using Kali Linux
+- WHOIS Enumeration & Domain Information Gathering
+- DNS Enumeration using DNSRecon
+- DNS Resolution using Nslookup
+- HTTP Header Analysis using cURL
+- Web Technology Fingerprinting using WhatWeb
+- WAF Detection using Wafw00f
+- Internal Network Discovery using Zenmap / Nmap
+- Ping Scan of the `10.10.10.0/24` Lab Network
+- Identification of 5 Active Hosts
+- Security Observations, Recommendations & Learning Outcomes
+- Detailed Documentation, Commands, Screenshots & Evidence
 
 ## ➡️ [Week 03 Documentation](week-03/)
 - *Documentation will be added as the internship progresses.*
