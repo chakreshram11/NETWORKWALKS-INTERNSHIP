@@ -123,8 +123,18 @@ The initial laboratory environment was built during **Week 01** using:
 - Security Observations, Recommendations & Learning Outcomes
 - Detailed Documentation, Commands, Screenshots & Evidence
 
-## ➡️ [Week 03 Documentation](week-03/)
-- *Documentation will be added as the internship progresses.*
+## ➡️ [Week 03 Documentation — Password Cracking & Hash Analysis](https://github.com/chakreshram11/NETWORKWALKS-INTERNSHIP/tree/main/week-03)
+
+- Password Cracking with **John the Ripper (JTR)**
+- PDF Password Hash Extraction using **pdf2john**
+- Dictionary-Based Password Attacks using **rockyou.txt**
+- Password Recovery Testing on **3 Password-Protected PDF Lab Files**
+- Password Cracking using **NetworkWalks Hash Calculator & Password Cracker**
+- PDF Hash Analysis and Dictionary Attack Results
+- Command-Line Password Recovery using **Kali Linux**
+- Practical Understanding of **Hashes, Wordlists & Password Matching**
+- Security Observations, Recommendations & Learning Outcomes
+- Detailed Documentation, Commands, Screenshots & Evidence
 
 ## ➡️ [Week 04 Documentation](week-04/)
 - *Documentation will be added as the internship progresses.*
