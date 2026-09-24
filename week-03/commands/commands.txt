@@ -1,0 +1,26 @@
+# Week 3 — John the Ripper Commands
+
+## PDF 1
+
+pdf2john My-Locked-PDF1.pdf > hash.txt
+cat hash.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
+## PDF 2
+
+pdf2john My-Locked-PDF2.pdf > hash2.txt
+cat hash2.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt hash2.txt
+
+## PDF 3
+
+pdf2john My-Locked-PDF3.pdf > hash3.txt
+cat hash3.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt hash3.txt
+
+## Notes
+
+- The lab used the provided training PDFs.
+- `pdf2john` extracted the PDF hashes.
+- John the Ripper performed dictionary attacks using `rockyou.txt`.
+- Recovered passwords are intentionally omitted from this text file for a cleaner public repository.
