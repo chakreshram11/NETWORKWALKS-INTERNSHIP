@@ -136,8 +136,26 @@ The initial laboratory environment was built during **Week 01** using:
 - Security Observations, Recommendations & Learning Outcomes
 - Detailed Documentation, Commands, Screenshots & Evidence
 
-## ➡️ [Week 04 Documentation](week-04/)
-- *Documentation will be added as the internship progresses.*
+## ➡️ Week 04 Documentation — Mediroza General Hospital Web Application Penetration Testing
+
+- Web Application Reconnaissance & Information Gathering
+- DNS Enumeration using NSLookup & DNSRecon
+- Domain & Infrastructure Reconnaissance using WHOIS
+- Web Technology Fingerprinting using WhatWeb
+- Web Application Firewall Detection using WAFW00F
+- Network Service Enumeration using Nmap
+- Web Content Discovery through robots.txt & Directory Enumeration
+- M1 — Initial Access: Patient Portal Authentication Testing & Retrieval of 3 Confidential Patient PDF Lab Reports
+- M2 — Data Extraction: PDF Hash Extraction using pdf2john
+- Dictionary-Based PDF Password Recovery using John the Ripper & rockyou.txt
+- Password Recovery Testing on 3 Password-Protected Patient PDF Reports
+- M3 — Attack (Cracking): Discovery of Publicly Accessible SQL Database Backup
+- Analysis of Exposed Staff Salary & Sensitive Personnel Data
+- Identification of Shareholder Details & Ownership Information
+- Critical Security Finding: Publicly Accessible Database Backup
+- M4 — Final Penetration Test Report with Findings, Risk Ratings & Remediation
+- Security Impact Analysis, Recommendations & Mitigation Strategies
+- Detailed Documentation, Commands, Screenshots & Evidence
 
 ---
 
